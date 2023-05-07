@@ -16,7 +16,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={notoSansJp.className}>{children}</body>
+      <body className={notoSansJp.className}>
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+          <header className="bg-blue-600 dark:bg-blue-800 text-white py-6">
+            <div className="container mx-auto px-4">
+              <h1 className="text-4xl font-bold">Next.js sandbox</h1>
+            </div>
+          </header>
+          {children}
+          <footer className="bg-blue-600 dark:bg-blue-800 text-white py-6">
+            <div className="container mx-auto px-4">
+              <p className="text-center">&copy; 2023- Aximov</p>
+            </div>
+          </footer>
+        </div>
+      </body>
     </html>
   )
 }
