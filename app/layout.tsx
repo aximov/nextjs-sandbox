@@ -1,5 +1,6 @@
 import './globals.css'
 import { Noto_Sans_JP } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 
 // Preloading enabled by default so an error occurs without subsetting
 const notoSansJp = Noto_Sans_JP({ subsets: ['latin'] })
@@ -30,6 +31,7 @@ export default function RootLayout({
             </div>
           </footer>
         </div>
+        <Analytics />
       </body>
     </html>
   )
