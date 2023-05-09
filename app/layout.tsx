@@ -2,6 +2,7 @@ import './globals.css'
 import { Noto_Sans_JP } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import Link from 'next/link'
+import FloatingGitHubLink from './floatingGitHubLink'
 
 // Preloading enabled by default so an error occurs without subsetting
 const notoSansJp = Noto_Sans_JP({ subsets: ['latin'] })
@@ -33,6 +34,7 @@ export default function RootLayout({
               <p className="text-center">&copy; 2023- Aximov</p>
             </div>
           </footer>
+          <FloatingGitHubLink />
         </div>
         <Analytics />
       </body>
