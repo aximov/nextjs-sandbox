@@ -1,12 +1,15 @@
+import { sql } from '@vercel/postgres'
 import {
   UserGroupIcon,
   CurrencyDollarIcon,
   ShoppingCartIcon,
   CubeTransparentIcon,
+  DocumentIcon,
 } from '@heroicons/react/24/outline'
 
-export default function Dashboard() {
-  const dummyData = [
+export default async function Dashboard() {
+  const { rows: articles } = await sql`SELECT * FROM articles;`
+  const managedData = [
     {
       title: 'Total Users',
       value: 150,
@@ -27,11 +30,16 @@ export default function Dashboard() {
       value: 120,
       icon: CubeTransparentIcon,
     },
+    {
+      title: 'Total Articles',
+      value: articles.length,
+      icon: DocumentIcon,
+    }
   ]
   return (
     <main className="container mx-auto px-4 py-12">
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {dummyData.map((data, index) => {
+        {managedData.map((data, index) => {
           const IconComponent = data.icon
           return (
             <div
